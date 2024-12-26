@@ -1,0 +1,28 @@
+package springBootMVC__2.productservice;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+
+import springBootMVC__2.productmodel.ProductModel;
+import springBootMVC__2.productrepository.ProductRepository;
+@Service
+public class ProductService {
+	@Autowired
+	ProductRepository productRepository;
+	public void saveProductDetails(ProductModel productModel) {
+		
+		double StockValue;
+		StockValue = productModel.getPrice() * productModel.getQuantity();
+		
+		double discountPrice;
+		discountPrice = productModel.getPrice() * productModel.getDiscountRate()/100;
+		
+		double offerPrice;
+		offerPrice = productModel.getPrice() - discountPrice ();
+		
+		double taxPrice;
+		taxPrice = productModel.getPrice() * productModel.getTaxRate()/100;
+		
+	}
+}
+

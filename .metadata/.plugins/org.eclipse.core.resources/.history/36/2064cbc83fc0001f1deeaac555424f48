@@ -1,0 +1,11 @@
+package springBootMVC__3.repository;
+
+import springBootMVC__3.employee.Employee;
+
+@org.springframework.stereotype.Repository
+public class Repository {
+	public void repositoryMethod(int id, String name, double salary) {
+		
+		System.out.println(employee);
+	}
+}

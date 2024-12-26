@@ -1,0 +1,14 @@
+package springBootMVC__3.testclient;
+
+import org.springframework.stereotype.Controller;
+
+import springBootMVC__3.employee.Employee;
+
+public class TestClient {
+	public static void main(String[] args) {
+		Employee employee = new Employee();
+		
+		Controller controller = new Controller();
+		((controller) controller).controllerMethod(employee);
+	}
+}

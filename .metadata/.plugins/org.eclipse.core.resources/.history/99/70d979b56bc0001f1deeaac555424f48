@@ -1,0 +1,9 @@
+package springBootMVC__2.productcontroller;
+
+import org.springframework.web.bind.annotation.GetMapping;
+
+public class ProductController {
+	@GetMapping("/productform)")public String getProductForm() {
+		return "add-product";
+	}
+}

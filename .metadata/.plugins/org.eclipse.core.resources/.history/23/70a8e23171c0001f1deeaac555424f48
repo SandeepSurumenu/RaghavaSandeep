@@ -1,0 +1,5 @@
+package springBootMVC__2.productmodel;
+
+public class ProductModel {
+
+}

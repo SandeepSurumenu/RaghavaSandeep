@@ -1,0 +1,11 @@
+package springBootMVC__3.testclient;
+
+
+public class TestClient {
+	public static void main(String[] args) {
+		Employee employee = new Employee();
+		
+		Controller controller = new Controller();
+		controller.controllerMethod(employee);
+	}
+}

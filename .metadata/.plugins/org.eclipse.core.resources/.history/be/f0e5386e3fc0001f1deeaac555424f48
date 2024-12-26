@@ -1,0 +1,11 @@
+package springBootMVC__3.controller;
+
+import springBootMVC__3.employee.Employee;
+
+@org.springframework.stereotype.Controller
+public class Controller {
+
+	public void controllerMethod(Employee employee) {
+		Service.serviceMethod(employee);
+	}
+}

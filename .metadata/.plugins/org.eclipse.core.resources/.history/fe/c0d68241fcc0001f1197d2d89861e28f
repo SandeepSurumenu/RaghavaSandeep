@@ -1,0 +1,2 @@
+spring.application.name=springBootMVC--2
+server.port = 9090

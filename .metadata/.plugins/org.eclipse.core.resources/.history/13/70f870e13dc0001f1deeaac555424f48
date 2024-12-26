@@ -1,0 +1,9 @@
+package springBootMVC__3.service;
+
+import org.apache.catalina.startup.ClassLoaderFactory.Repository;
+
+public class Service {
+	Repository repository = new Repository();
+	public void serviceMethod( Employee employee);
+}
+}

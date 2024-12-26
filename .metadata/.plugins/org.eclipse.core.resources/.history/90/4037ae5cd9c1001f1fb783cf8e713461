@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<title>Product List</title>
+</head>
+<body>
+    <div>
+        <h2>Product List</h2>
+        <table border="2">
+            <thead>
+                <tr>
+                    <th>Id</th>
+                    <th>Name</th>
+                    <th>Brand</th>
+                    <th>Price</th>
+                    <th>MadeIn</th>
+                    <th>Quantity</th>
+                    <th>DiscountRate</th>
+                    <th>TaxRate</th>
+                    <th>DiscountPrice</th>
+                    <th>TaxPrice</th>
+                    <th>OfferPrice</th>
+                    <th>FinalPrice</th>
+                    <th>StockValue</th>		
+					<th>Actions</th>				
+                </tr>
+            </thead>
+            <tbody>
+                <tr th:each ="products:${products}">
+
+                <td th:text = "${products.id}"></td>
+                <td th:text = "${products.name}"></td>
+                <td th:text = "${products.brand}"></td>
+                <td th:text = "${products.price}"></td>
+                <td th:text = "${products.madeIn}"></td>
+                <td th:text = "${products.quantity}"></td>
+                <td th:text = "${products.discountRate}"></td>
+                <td th:text = "${products.taxRate}"></td>
+                <td th:text = "${products.discountPrice}"></td>
+                <td th:text = "${products.taxPrice}"></td>
+                <td th:text = "${products.offerPrice}"></td>
+                <td th:text = "${products.finalPrice}"></td>
+                <td th:text = "${products.stockValue}"></td>	
+				<td><a th:href="@{'/delete/' + ${products.id}}">Delete</a></td> 
+
+            </tr>
+			
+            </tbody>
+        </table>
+    </div>
+</body>
+</html>

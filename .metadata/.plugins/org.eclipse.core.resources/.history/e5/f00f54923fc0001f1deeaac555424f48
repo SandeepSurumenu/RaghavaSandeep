@@ -1,0 +1,11 @@
+package springBootMVC__3.service;
+
+import springBootMVC__3.employee.Employee;
+import springBootMVC__3.repository.Repository;
+
+public class Service {
+	Repository repository = new Repository();
+	public void serviceMethod( Employee employee) {
+		repository.repositoryMethod(employee);
+	}
+}

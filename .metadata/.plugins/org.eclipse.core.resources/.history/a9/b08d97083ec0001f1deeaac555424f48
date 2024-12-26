@@ -1,0 +1,9 @@
+package springBootMVC__3.controller;
+
+@org.springframework.stereotype.Controller
+public class Controller {
+
+	public void controllerMethod(Employee employee) {
+		
+	}
+}

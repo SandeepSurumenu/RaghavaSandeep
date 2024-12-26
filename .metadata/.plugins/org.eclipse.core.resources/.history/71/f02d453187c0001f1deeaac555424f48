@@ -1,0 +1,61 @@
+package springBootMVC__2.productservice;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+
+import springBootMVC__2.productentity.ProductEntity;
+import springBootMVC__2.productmodel.ProductModel;
+import springBootMVC__2.productrepository.ProductRepository;
+@Service
+public class ProductService {
+	@Autowired
+	ProductRepository productRepository;
+	public void saveProductDetails(ProductModel productModel)
+	{
+		double StockValue;
+		StockValue = productModel.getPrice() * productModel.getQuantity();
+		
+		double DiscountPrice;
+		DiscountPrice = productModel.getPrice() * productModel.getDiscountRate()/100;
+		
+		double TaxPrice;
+		TaxPrice = productModel.getPrice() * productModel.getTaxRate()/100;
+		
+		double OfferPrice;
+		OfferPrice = productModel.getPrice() - DiscountPrice;
+		
+		double FinalPrice;
+		FinalPrice = OfferPrice + TaxPrice;
+		
+		
+		ProductEntity productEntity = new ProductEntity();
+		
+		productEntity.setName(productModel.getName());
+		productEntity.setBrand(productModel.getBrand());
+		productEntity.setMadeIn(productModel.getMadeIn());
+		productEntity.setPrice(productModel.getPrice());
+		productEntity.setQuantity(productModel.getQuantity());
+		productEntity.setStockValue(StockValue);
+		productEntity.setDiscountPrice(DiscountPrice);
+		productEntity.setTaxRate(TaxPrice);
+		productEntity.setOfferPrice(OfferPrice);
+		productEntity.setFinalPrice(FinalPrice);
+
+		productRepository.save (productEntity);
+	}
+	public List<ProductEntity> getAllProducts() {
+		List<ProductEntity> products = productRepository.findAll();
+	}
+	
+	public ProductRepository searchById(Long id) {
+		Optional<ProductEntity> optionalData = productRepodsitoty.findById(id);
+		if(optionalData.isPresent()) {
+			ProductEntity product = optionalData.get();
+			return product;
+		}
+		else {
+			return null;
+		}
+	}
+	
+}

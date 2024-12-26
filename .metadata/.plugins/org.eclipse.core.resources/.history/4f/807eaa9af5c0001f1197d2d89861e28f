@@ -1,0 +1,69 @@
+package springBootMVC__2.productcontroller;
+
+import java.util.List;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.PostMapping;
+
+import springBootMVC__2.productentity.ProductEntity;
+import springBootMVC__2.productmodel.ProductModel;
+import springBootMVC__2.productservice.ProductService;
+import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.RequestBody;
+
+
+@Controller
+public class ProductController {
+	@GetMapping("/productform)")
+	public String getProductForm() {
+		return "add-product";
+	}
+	
+@PostMapping("/SaveProduct")
+public String SaveProduct(ProductModel productModel) {
+	System.out.println(productModel);
+	return "Success";
+}
+
+@Autowired
+ProductService productService;
+
+@PostMapping("/SaveProduct")
+public String saveProduct(ProductModel productModel) {
+	productService.saveProductDetails(productModel);
+	return "Success";
+}
+
+@GetMapping("/getallproducts")
+public String getAllProducts(Model model)
+{
+	List<ProductEntity> products = productService.getAllProducts();
+	
+	model.addAttribute("products", products);
+	return "Product-List";
+}
+
+@GetMapping("pathsearchform")
+public String getSearchForm() {
+    return "Search=Product";
+}
+
+@PostMapping("/serachbyid")
+public String SearchById(@RequestParam Long id, Model model) {
+	ProductEntity product = productService.searchById(id);
+	model.addAttribute("product", product);
+	return "Search-Product";
+}
+
+@GetMapping("/delete/{id}")
+public String deleteProductById(@PathVariable("id") Long id) {
+	productService.deleteProductById(id);
+    return "redirect:/getallproducts";
+}
+
+
+}

@@ -1,0 +1,8 @@
+package springBootMVC_0.employeeentity;
+
+import jakarta.persistence.Entity;
+
+@Entity
+public class EmployeeEntity {
+
+}

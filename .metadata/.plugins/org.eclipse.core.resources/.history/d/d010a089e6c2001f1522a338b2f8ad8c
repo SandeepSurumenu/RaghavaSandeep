@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<title>Search Product</title>
+</head>
+<body>
+<h2>Search for a product</h2>
+<form th:action="@{/searchbyid}" method="post">
+    <label for="id">Enter ID:</label>
+    <input type="number" name="id" id="id" required>
+    <button type="submit"> Search</button>
+</form>
+<div th:if="${products != null}">
+    <h3>Product Details</h3>
+    <p><Strong>Id:</Strong> <span th:text="${products.id}"></span></p>
+    <p><Strong>Name:</Strong> <span th:text="${products.name}"></span></p>
+    <p><Strong>Brand:</Strong> <span th:text="${products.brand}"></span></p>
+    <p><Strong>Price:</Strong> <span th:text="${products.price}"></span></p>
+    <p><Strong>MadeIn:</Strong> <span th:text="${products.madeIn}"></span></p>
+    <p><Strong>Quantity:</Strong> <span th:text="${products.quantity}"></span></p>
+    <p><Strong>DiscountRate:</Strong> <span th:text="${products.discountRate}"></span></p>
+    <p><Strong>taxRate:</Strong> <span th:text="${products.taxRate}"></span></p>
+    <p><Strong>DiscountPrice:</Strong> <span th:text="${products.discountPrice}"></span></p>
+    <p><Strong>TaxPrice:</Strong> <span th:text="${products.taxPrice}"></span></p>
+    <p><Strong>OfferPrice:</Strong> <span th:text="${products.offerPrice}"></span></p>
+    <p><Strong>FinalPrice:</Strong> <span th:text="${products.finalPrice}"></span></p>
+    <p><Strong>StockValue:</Strong> <span th:text="${products.stockValue}"></span></p>
+</div>
+<div th:if="${products==null}">
+    <p>No product fount with the given ID.</p>
+</div>
+</body>
+</html>

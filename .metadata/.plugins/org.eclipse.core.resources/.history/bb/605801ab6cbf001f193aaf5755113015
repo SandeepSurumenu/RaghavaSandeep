@@ -1,0 +1,16 @@
+package springBootMVC_2.Controller;
+
+import org.springframework.beans.factory.annotation.Autowired;
+
+import springBootMVC_2.employee.Employee;
+import springBootMVC_2.service.Service;
+@org.springframework.stereotype.Controller
+public class Controller {
+	@Autowired
+	Service service;
+	Service service = new Service();
+	public void controllerMethod(Employee employee)
+	{
+		service.serviceMethod(employee);
+	}
+}

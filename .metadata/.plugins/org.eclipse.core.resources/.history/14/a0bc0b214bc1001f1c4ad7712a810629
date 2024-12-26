@@ -1,0 +1,7 @@
+package springBootMVC_0employeeservice;
+
+import springBootMVC_0.employeservice.EmployeeSercive;
+
+public class EmployeeService implements EmployeeSercive {
+
+}

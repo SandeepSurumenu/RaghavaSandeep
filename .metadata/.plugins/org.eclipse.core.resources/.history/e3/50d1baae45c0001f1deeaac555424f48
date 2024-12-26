@@ -1,0 +1,17 @@
+package springBootMVC__3.testclient;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Controller;
+
+import springBootMVC__3.employee.Employee;
+
+public class TestClient {
+	@Autowired
+	Controller controller;
+	public static void main(String[] args) {
+		Employee employee = new Employee(1001, "sonu", 24000.09);
+		
+		Controller controller = new Controller();
+		controller.controllerMethod(employee);
+	}
+}

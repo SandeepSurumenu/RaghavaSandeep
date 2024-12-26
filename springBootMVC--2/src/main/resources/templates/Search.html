@@ -1,0 +1,14 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Search</title>
+</head>
+<body>
+    <form th:action = "@{/searchbyid}" method="post">
+        <label>EnterId:</label>
+        <input type="number" name="id">
+        <button type="submit">search</button>
+    </form>
+</body>
+</html>
